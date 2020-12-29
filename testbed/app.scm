@@ -5,6 +5,9 @@
 ;;; before everything:
 (##include "../node_modules/gambscript/scheme/default-macros.scm")
 
+;;; Modules import:
+(!js-require _ underscore)
+
 (define-syntax cond1
   (syntax-rules (=> else)
     ((cond1 test => fun)
@@ -178,7 +181,6 @@
            (!!! dt 'setMonth 4)
            (!sa console.log "Current date object: " dt))
 
-         (!js-require _ underscore)
          (!sa console.log "UNDERSCORE SIZE OF [1, 2, 3, 4]: " (!xa _.size (!xa Array 1 2 3 4)))
 
          (set! GLOBAL (+ 1 GLOBAL))

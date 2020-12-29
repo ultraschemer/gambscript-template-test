@@ -3,6 +3,7 @@ const path = require('path')
 module.exports = (env) => {
   const isProduction = env === 'production'
   return {
+    mode: env,
     entry: './src/index.js',
     module: {
       rules: [
@@ -35,7 +36,6 @@ module.exports = (env) => {
       minimize: true,
       mergeDuplicateChunks: false,
     },
-    devtool: isProduction ? 'none' : 'inline-source-map',
-    devtool: 'none'
+    devtool: isProduction ? false : 'inline-source-map',
   }
 }
